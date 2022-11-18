@@ -1,13 +1,15 @@
 const express = require('express');
 const connectDb = require('./config/db');
 const apiRoutes = require("./routes/apiRoutes");
+var cors = require('cors')
+
 
 const app = express()
 require('dotenv').config()
 const port = process.env.PORT
 
 app.use(express.json())
-
+app.use(cors())
 
 // mongodb connection
 connectDb();
