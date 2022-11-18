@@ -1,5 +1,6 @@
 const express = require('express');
 const connectDb = require('./config/db');
+const apiRoutes = require("./routes/apiRoutes");
 
 const app = express()
 require('dotenv').config()
@@ -15,7 +16,7 @@ app.get('/', (req, res) => {
     res.json({ message: "Api connection has been established" })
 })
 
-// app.use('/api', apiRoutes);
+app.use('/api', apiRoutes);
 
 //console error 
 app.use((error, req, res, next) => {
